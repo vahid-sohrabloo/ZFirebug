@@ -1,5 +1,7 @@
 This project extent from ZFDebug (http://code.google.com/p/zfdebug/);
-To install copy "ZFirebug" Folder in your library path.
+You must first install firebug (http://getfirebug.com/) in your firefox
+Then install firephp (http://www.firephp.org/) in your firefox
+Then copy "ZFirebug" Folder in your library path.
 
 Then define initilize method in your bootstrap file
 
