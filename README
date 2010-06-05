@@ -1,0 +1,27 @@
+This project extent from ZFDebug (http://code.google.com/p/zfdebug/);
+To install copy "ZFirebug" Folder in your library path.
+
+Then define initilize method in your bootstrap file
+
+protected function _initZFirebug()
+	{
+		$autoloader = Zend_Loader_Autoloader::getInstance();
+		$autoloader->registerNamespace('ZFirebug');
+
+		$options = array(
+        'plugins' => array("Variables",
+							'File',
+							'Html',
+							'Memory', 
+							'Time', 
+							'Registry', 
+							'Auth')
+		);
+
+		$debug = new ZFirebug_Controller_Plugin_Debug($options);
+
+		$this->bootstrap('frontController');
+		$frontController = $this->getResource('frontController');
+		$frontController->registerPlugin($debug);
+
+	}
