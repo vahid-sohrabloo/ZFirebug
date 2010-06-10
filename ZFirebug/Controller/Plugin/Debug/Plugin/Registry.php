@@ -85,7 +85,10 @@ class ZFirebug_Controller_Plugin_Debug_Plugin_Registry implements ZFirebug_Contr
     	$html = '<h4>Registered Instances</h4>';
     	$this->_registry->ksort();
     	foreach($this->_registry as $k=>$v){
+    		if(is_object($v))
     		$this->message->addRow(array($k,get_class($v)));
+    		else
+    		$this->message->addRow(array($k,$v));
     	}
     }
 

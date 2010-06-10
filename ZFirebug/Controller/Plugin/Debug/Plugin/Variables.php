@@ -98,17 +98,7 @@ class ZFirebug_Controller_Plugin_Debug_Plugin_Variables  implements ZFirebug_Con
 
 	protected function _cleanData($value)
 	{
-			if (is_numeric($value)) {
-				$retVal = $value;
-			}
-			else if (is_null($value))
-			{
-				$retVal = $value;
-			}
-			else if (is_string($value)) {
-				$retVal = $value;
-			}
-			else if (is_array($value))
+			if (is_array($value))
 			{
 				ksort($value);
 				foreach($value as $k=>$v){
@@ -125,6 +115,9 @@ class ZFirebug_Controller_Plugin_Debug_Plugin_Variables  implements ZFirebug_Con
 					$retVal = get_class($value)." Object";
 				}
 				
+			}
+			else{
+				$retVal = $value;
 			}
 		return $retVal;
 	}
